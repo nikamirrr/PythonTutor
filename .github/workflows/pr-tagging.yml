@@ -7,6 +7,7 @@ on:
 permissions:
   pull-requests: write
 
+
 jobs:
   pr_tagging:
     runs-on: ubuntu-latest
