@@ -1,8 +1,11 @@
 on:
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, reopened, edited, synchronize]
     branches:
       - master
+
+permissions:
+  issues: write
 
 jobs:
   pr_tagging:
