@@ -1853,6 +1853,7 @@ failure to *repeat* something, not a failure to set it up.
 ### Monthly
 
 - [ ] BECU reconciled against Wave
+- [ ] **Statements and invoices filed** for the month — see *Financial records* below
 - [ ] Every recurring charge confirmed on the **business** card, not a personal one (§7, Phase 3)
 - [ ] 25–30% of net moved into the tax reserve account (§3.4)
 - [ ] Caseload checked against licensure pacing — on track for 1,200 direct hours? (§6.4)
@@ -1889,6 +1890,7 @@ failure to *repeat* something, not a failure to set it up.
 - [ ] **Professional will**: custodian still willing, details current, envelope location unchanged (§4.7)
 - [ ] **Family Sharing** settings re-verified — Shared Photo Library, Shared Albums, Screen Time (§5.4)
 - [ ] Fee schedule and no-show policy reviewed (§4.5)
+- [ ] **Year packaged** for the CPA — statements, invoices, receipts, Wave P&L (see *Financial records* below)
 - [ ] Cabinet contents match what you believe is in it
 - [ ] **Annual client retention review** — delete clients last seen over six years ago, after the pre-flight checks (§8, cleanup)
 - [ ] **Safe deposit box folder checked** against its inventory; recovery sheet copy still current (§5.6)
@@ -1907,6 +1909,43 @@ failure to *repeat* something, not a failure to set it up.
 
 
 
+
+### Financial records — automate once, file monthly, package yearly
+
+These are **business records, not PHI**. Different clock, different sensitivity, and they must live in
+a **separate OneDrive folder from the clinical archive**: `Business-Records/YYYY/MM`. Mixing the two
+means the whole lot inherits the stricter handling and the wrong retention period.
+
+**Retention: seven years** — longer than the clinical five, because the IRS and WA DOR can audit a
+closed entity (§10.5, §10.8).
+
+**Set up once, at launch — this is what stops it becoming a chore**
+
+- [ ] Mail rule in Microsoft 365 filing anything from iPlum, Microsoft, SimplePractice, Psychology Today, Cloudflare and HPSO into a `Receipts` folder
+- [ ] Paperless statements switched on at BECU for both the account and the card
+- [ ] Wave receipt capture configured on the phone
+
+**At the moment it happens**
+
+- [ ] **Photograph paper receipts immediately.** Thermal paper fades to blank within one to three years — a receipt you file in December may be unreadable by the time anyone asks for it. Capture, then the paper itself is disposable.
+
+**Monthly — batched with the Wave reconciliation you already do**
+
+| Item | Why monthly rather than quarterly |
+|---|---|
+| **BECU statements** — account and card, downloaded as PDF | Banks age statements out of online access, often after 18–24 months. **Do not assume the bank keeps them for seven years — you do** |
+| **Vendor invoices** for the month, downloaded from the `Receipts` folder into `Business-Records/YYYY/MM` | Portal history disappears when you cancel a service (§10.7). Email is not an archive either — it lapses with the subscription |
+| Receipts reconciled against Wave; anything unmatched chased while you still remember it | A missing receipt is findable in week two and gone by month four |
+
+**Annually**
+
+- [ ] Package the year into `Business-Records/YYYY/`: twelve months of statements, all vendor invoices, receipts, and the Wave profit-and-loss. That package is what goes to the CPA (§9) and what an auditor would ask for.
+
+> **Keep client names out of the banking stream.** Take payments through SimplePractice card
+> processing only. Deposits then appear as aggregated processor settlements, and your statements stay
+> free of client names — which keeps them ordinary business records. If a statement ever *does* show a
+> client name (a posted cheque, a peer-to-peer transfer), that statement is PHI: it belongs in the
+> encrypted clinical side (§5.5), not in `Business-Records`.
 
 ### Data cleanup and erasure
 
