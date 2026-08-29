@@ -1,7 +1,7 @@
 # LMHCA Private Practice — Business Plan
 
 **Location:** Redmond, Washington · **Model:** Solo, telehealth-only · **Entity:** Washington PLLC
-**Last revised:** 2026-08-23 · **Status:** Pre-launch
+**Last revised:** 2026-08-30 · **Status:** Pre-launch
 
 > **How to use this document.** Every requirement below carries a link to the authority that
 > defines it. Dollar figures are current as of the revision date; anything marked **[verify]**
@@ -347,7 +347,8 @@ legal PLLC name as filed. Keep the taxonomy code consistent across both NPIs.
 | EIN                                                                                                         | $0              | IRS                                                                                                                                                                       |
 | NPI Type 1 + Type 2                                                                                         | $0              | NPPES                                                                                                                                                                     |
 | Telemedicine training                                                                                       | $0              | WSHA (§4.4)                                                                                                                                                               |
-| **Subtotal — paid from personal funds, before the account exists (§7)**                                     | **~$430–450**   | record as capital contribution                                                                                                                                            |
+| Domain + Microsoft 365 + iPlum, first month (§7 contact sequence) | ~$33 | buy **before** any registration |
+| **Subtotal — paid from personal funds, before the account exists (§7)** | **~$465–485** | record as capital contribution |
 | **Operating Agreement** — template, or attorney review                                                      | $0–500          | §2.2                                                                                                                                                                      |
 | **Locking file cabinet** (fire-resistant if budget allows)                                                  | $100–200        | §2.4 — required physical safeguard                                                                                                                                        |
 | **Shredder, DIN 66399 P-5 micro-cut**                                                                       | $50–120         | §2.4 — P-4 is the floor, strip-cut is not acceptable                                                                                                                      |
@@ -590,7 +591,8 @@ The Washington State Telehealth Collaborative training is free and about 20 minu
 | Clinical intake questionnaire and history      | —                                                                                                                                                                                                                                                                                                            | practice document                                                                                                                                                                                            |
 | Safety / crisis plan template                  | —                                                                                                                                                                                                                                                                                                            | practice document                                                                                                                                                                                            |
 | Release of Information (ROI) form              | —                                                                                                                                                                                                                                                                                                            | practice document                                                                                                                                                                                            |
-| Payment method authorization                   | Card on file for SimplePractice payments                                                                                                                                                                                                                                                                     | practice document                                                                                                                                                                                            |
+| Payment method authorization | **Card on file is the default** — see §5.5 for why, and which methods are declined | practice document |
+| Superbill notice | What a superbill contains, and that submitting it records a mental health diagnosis with their insurer (§5.5) | practice document |
 
 
 
@@ -1246,6 +1248,57 @@ information by email — use the client portal."*
 breach. Go to the breach notification procedure (§5.1), run the risk assessment, and notify if
 required.
 
+#### Client payments and superbills — keeping identity inside SimplePractice
+
+Every payment carries a name, and often an address. **The design principle: client identity stays in
+SimplePractice; only anonymous money reaches the bank.**
+
+| Where | What it holds | What protects it |
+|---|---|---|
+| **SimplePractice** | Name, address, invoice, payment record, card on file | BAA. This is the system of record for billing |
+| Payment processor | Card data | SimplePractice's BAA, plus PCI — you never handle card numbers |
+| **BECU** | Aggregated processor settlements — **no client names, if card-only** | The financial-institution exclusion, below |
+| **Superbill** | Name, address, DOB, diagnosis codes, dates of service | Portal delivery only — see below |
+
+**You do not need a BAA with your bank.** HIPAA **§1179 exempts financial institutions** for
+authorizing, processing, clearing, settling, billing, transferring, reconciling and collecting
+payments — explicitly including clearing cheques and card transactions
+([45 CFR 160.103](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-160/subpart-A/section-160.103)).
+Depositing client payments is also a permitted *payment* activity under
+[45 CFR 164.506(c)](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.506).
+The boundary: a bank that went beyond payment processing — running your accounts receivable, say —
+*would* become a business associate. BECU will not be doing that.
+
+**Minimum necessary still applies to payment disclosures**, though, and that is the real argument for
+card: it simply discloses less.
+
+**Card on file is the clean path — make it the default.** State it in the fee policy and the payment
+authorization form (§4.5). The client's name stays in SimplePractice and the bank sees a batch
+settlement. **Verify this on your first statement** rather than assuming — read how the deposit
+descriptor actually appears.
+
+**Cheques are the leaky path.** A client cheque hands you their name, usually a preprinted address,
+and their account and routing numbers — PHI plus financial data, on paper, in your home.
+
+- Treat it as PHI from the mailbox onward: §2.4 rules, straight into the locked cabinet.
+- Deposit promptly. Mobile deposit is fine — the same §1179 exclusion covers the bank's app.
+- **Once the deposit clears, shred the cheque** (P-5). The payment record in SimplePractice is the
+  record you need; the paper adds nothing and carries routing numbers.
+- Their name may surface on your statement. If it does, **that statement is PHI** and belongs on the
+  encrypted clinical side, not in `Business-Records` (§8).
+
+**Never accept Venmo, Zelle, PayPal personal, or Cash App.** No BAA, and worse: these build
+semi-public transaction and social graphs, where a payment to a therapist is itself an inference
+about the payer. Decline them in the fee policy so the question never arises mid-relationship.
+
+**Superbills are the most identifying document the practice produces** — name, address, date of
+birth, diagnosis codes, dates of service — and they leave your control by design.
+
+- Generate in SimplePractice and deliver **through the client portal only**. Never by email.
+- **Tell the client what it contains, in the fee policy.** Submitting a superbill puts a mental
+  health diagnosis onto their insurer's claims record, which can follow them. That is their decision
+  to make, not yours — but they should make it knowing.
+
 #### The retention archive — three copies, only one of which counts
 
 **SimplePractice deletes your data when you leave.** Cancelled accounts cannot be recovered, and
@@ -1560,7 +1613,8 @@ Only three things unavoidably come first, because the bank needs them to open th
 | PLLC Certificate of Formation                                        | $180–200      |
 | WA Business License Application (produces the UBI the bank asks for) | $90           |
 | Redmond city endorsement                                             | $160          |
-| **Total paid from personal funds**                                   | **~$430–450** |
+| Domain + Microsoft 365 + iPlum, first month | ~$33 |
+| **Total paid from personal funds** | **~$465–485** |
 
 
 Pay these personally, keep the receipts, and record the total as the **initial capital contribution**
@@ -1570,6 +1624,52 @@ treat it as a personal gift to the business or leave it undocumented.
 If account opening drags and something genuinely cannot wait, pay personally and file a dated
 expense reimbursement from the business account once it opens. Reimbursement is fine; *undocumented*
 reimbursement is what causes problems.
+
+**Contact sequence — buy your business identity before you register anything.** There is a real
+chicken-and-egg here: nearly every account wants an email and a phone, and you have neither in
+business form yet. It resolves by buying the two cheapest pieces **first**, before the entity exists.
+
+| Buy in Phase 1, ahead of everything | Cost | Why first |
+|---|---:|---|
+| Cloudflare domain | ~$12/yr | Depends on nothing; prerequisite for business email |
+| Microsoft 365 Business Basic | ~$6/mo | Once live, every later registration gets the right address **first time** |
+| iPlum Professional | $14.99/mo | Gives you the business number *before* the filings that publish it |
+
+Roughly **$33** added to the pre-account capital contribution above — against migrating a dozen
+accounts later, it is the cheapest money in this plan.
+
+**Then register in this order**, so nothing needs revisiting: domain → Microsoft 365 → business email
+live → iPlum → business phone live → *then* the PLLC filing, business licence, **NPPES**, bank,
+SimplePractice, Psychology Today and HPSO, all with business contacts from the start.
+
+> **NPPES especially: NPI records are public.** Register the NPIs only once the business phone and
+> mailing address exist, or your personal number is published and awkward to correct afterwards.
+
+**Personal email and phone as recovery paths — allowed, and genuinely useful.** Nothing prohibits it:
+recovery contacts are not PHI channels, so no BAA question arises. Two conditions:
+
+- **Protect the personal email like a business system**, because that is what it becomes. MFA on,
+  strong unique password, in the password manager. A recovery path that can reset access to a PHI
+  system is exactly as sensitive as that system.
+- **Never let it be the only way back in.** The printed recovery sheet (§5.6) depends on no live
+  account — and it is the only route your records custodian can use, since they cannot get into your
+  personal email (§10.9).
+
+**Three places where personal is correct and should stay that way:**
+
+| Item | Why |
+|---|---|
+| EIN responsible party | It is you personally by IRS design — SSN and all |
+| Microsoft 365 tenant recovery contact | The tenant cannot be its own recovery path |
+| Registered agent | It is your name and address by definition (§2.3) |
+
+**Anything registered early with personal details: keep a list.** When the business email goes live,
+change the primary contact, **confirm the change actually took**, then **re-download the recovery
+codes** — changing the address invalidates the old ones on many services.
+
+> **This runs in reverse at closure.** Your business email and phone are both subscriptions, so both
+> die when you cancel them — while the duty to be reachable for records requests runs five more
+> years. §10.5 handles it.
 
 ### Phase 1 — Decide and verify (before any filing)
 
@@ -1582,6 +1682,9 @@ reimbursement is what causes problems.
 - [ ] **Confirm the apartment lease permits home business use**
 - [ ] Serve as your own registered agent (§2.3) — apartment street address, and sign the written consent to serve
 - [ ] Confirm the WA disclosure statement, telehealth consent, and ROI can be delivered as Starter *intake forms* (§5.2)
+- [ ] **Register the domain** — [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) — see the contact sequence above
+- [ ] **Set up Microsoft 365 Business Basic** (no Teams); accept the Data Protection Addendum / BAA. **Business email live before any other registration**
+- [ ] **Set up iPlum Professional** with a WA number; execute and file the BAA; enable web calling and browser notifications (§5.4). **Business phone live before the PLLC filing and NPPES**
 - [ ] Re-quote HPSO; confirm the PLLC can be a named insured
 - [ ] Confirm the home address will be used for every mailing field (§2.4) — no mailbox provider at launch
 - [ ] **Confirm you can hold sole admin on the existing machine** (§5.4). If anyone else holds admin and will not give it up, the separate-account design does not work and a dedicated machine becomes necessary
@@ -1697,9 +1800,7 @@ reimbursement is what causes problems.
 
 ### Phase 5 — Technology and equipment (everything on the business card)
 
-- [ ] Register domain — [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/)
-- [ ] Set up Microsoft 365 Business Basic (no Teams); accept the Data Protection Addendum / BAA
-- [ ] Set up iPlum **Professional** with a WA number; execute and file the BAA; enable **web calling** and browser notifications (§5.4)
+- [ ] Domain, Microsoft 365 and iPlum are already live from Phase 1 — verify billing has moved to the business card
 - [ ] Set up SimplePractice; execute and file the BAA; configure telehealth video, client portal, intake forms, and payments
 - [ ] Create the Psychology Today profile; suppress the street address; point all inquiries at the SimplePractice portal
 - [ ] Set up Wave bookkeeping
@@ -1807,7 +1908,8 @@ packet on yourself as a dummy client before the first real one. Details and auth
 - [ ] **Good Faith Estimate** — federally required for every self-pay client, in writing, before services ([45 CFR 149.610](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610) · [CMS sample](https://www.cms.gov/files/document/nsa-sample-good-faith-estimate.pdf))
 - [ ] **Fee schedule and payment policy**
 - [ ] **No-show and late-cancellation policy**, with the fee stated
-- [ ] **Payment method authorization** — card on file for SimplePractice payments
+- [ ] **Payment method authorization** — card on file is the default; declined methods listed (§5.5)
+- [ ] **Superbill notice** — what it contains, and that submitting it records a diagnosis with their insurer (§5.5)
 - [ ] **Consent for electronic communication** — what may and may not be sent by email or iPlum text
 - [ ] **Client information and emergency contact form** — physical address per session, local emergency contacts, nearest emergency facility
 - [ ] **Clinical intake questionnaire and history**
@@ -1941,7 +2043,7 @@ closed entity (§10.5, §10.8).
 
 - [ ] Package the year into `Business-Records/YYYY/`: twelve months of statements, all vendor invoices, receipts, and the Wave profit-and-loss. That package is what goes to the CPA (§9) and what an auditor would ask for.
 
-> **Keep client names out of the banking stream.** Take payments through SimplePractice card
+> **Keep client names out of the banking stream** (§5.5 has the full treatment). Take payments through SimplePractice card
 > processing only. Deposits then appear as aggregated processor settlements, and your statements stay
 > free of client names — which keeps them ordinary business records. If a statement ever *does* show a
 > client name (a posted cheque, a peer-to-peer transfer), that statement is PHI: it belongs in the
@@ -2094,9 +2196,16 @@ into a lost licensure pathway. This is the single most irreversible item on the 
 
 - **Five years after last visit** ([WAC 246-809-035](https://app.leg.wa.gov/wac/default.aspx?cite=246-809-035)).
 Longer for minors — confirm with DOH (§9).
-- **Keep one contact route alive for those five years.** This is the step people miss: close the
-mailbox, the phone line and the email, and clients have a legal right to records they cannot
-exercise. Decide which channel survives, and **state it in the closure notice**.
+- **Keep one contact route alive for those five years — and note that both business channels are
+subscriptions.** Microsoft 365 and iPlum stop the moment you stop paying, so "keep the business
+email" is not a plan by itself. The cheap, durable answer:
+
+| Step | Why |
+|---|---|
+| **Keep the domain and prepay it for the full five years** (~$60) | Cloudflare allows multi-year registration. Prepaid, it cannot lapse because a card expired — no ongoing payment, and no burden on your custodian |
+| **Set up free email forwarding** on the domain to your personal inbox, and **test it**, *before* cancelling Microsoft 365 | `records@yourpractice.com` keeps working, so former clients never see your personal address |
+| **Let iPlum go.** State that records requests are by email only | Nothing requires a phone line, and $15/month for five years of voicemail is $900 |
+| **State the surviving address in the closure notice** to every client, and in the custodian instructions | An address nobody was told about is not a contact route |
 - **Update the custodian instructions** (§4.7) with the drive location, the passphrase location, and
 the surviving contact route.
 - **Business and tax records: keep seven years** — the IRS and DOR can audit a closed entity.
@@ -2124,9 +2233,10 @@ Terminating a BAA obliges the business associate to **return or destroy PHI**
 ([45 CFR 164.504(e)(2)(ii)(J)](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.504)).
 Get your export first, then let them delete.
 
+- **Set up domain email forwarding and test it first** (§10.5) — before anything is cancelled.
 - Cancel **Psychology Today**, then **iPlum**, then **SimplePractice last** — it holds the records.
-- **Keep Microsoft 365 running** while OneDrive still holds the archive, or move the archive to the
-drive first and then close it.
+- **Keep Microsoft 365 running** until the archive is off OneDrive and onto the drive, verified.
+- **Never cancel the domain.** It is the surviving contact route, and it is prepaid (§10.5).
 - Request written confirmation of deletion where a vendor offers it; file it with the BAAs.
 
 
